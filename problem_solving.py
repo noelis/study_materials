@@ -60,6 +60,23 @@ def repeat_again():
         test_str = generate_string()
         score = score_string(test_str)
 
+def get_goal():
+    """Generates random letter for each string position in str_goal and does not 
+    move on to next position until matching letter is found."""
 
+    string_goal = "methinks it is like a weasel"
+    characters = "abcdefghijklmnopqrstuvwxyz "
+    test_str = ""
+    count = 0
 
-print repeat_again()
+    for letter in string_goal:
+        new_letter = random.choice(characters)
+        while letter != new_letter:
+            count += 1
+            new_letter = random.choice(characters)
+            if  new_letter == letter:
+                test_str += new_letter
+
+    return test_str, count
+
+print get_goal()
